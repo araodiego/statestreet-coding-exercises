@@ -7,7 +7,6 @@ This repository contains a series of coding exercises for State Street Bank, str
 
 - **Exercise 1: Divisibility Checker (`divisibility-checker`)**: A Java application that prints numbers from 1 to 20, applying specific rules for numbers divisible by 3 and 5. It uses Java Streams for processing and JUnit 5 for unit testing.
 
-[Add other modules and their descriptions as they are created]
 
 ## Prerequisites
 
