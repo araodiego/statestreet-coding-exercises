@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div th:fragment="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">State Street - Person Manager</a>
+            
+            <div class="navbar-collapse collapse" id="navbarNav">				
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/persons">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/persons/create" class="btn btn-secondary mb-3">Create Person</a>
+                        <a href="/persons/searchByPartialName" class="btn btn-secondary mb-3">Search by Partial Name</a>
+                        <a href="/persons/searchByGender" class="btn btn-secondary mb-3">Search by Gender</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Person</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+	<div th:insert="menu :: navbar"></div>
+    <h1>Person Details</h1>
+    <div th:if="${person}" class="mt-3">
+        <p><strong>Full Name:</strong> <span th:text="${person.fullName}"></span></p>
+        <p><strong>Birthdate:</strong> <span th:text="${person.birthdate}"></span></p>
+        <p><strong>Gender:</strong> <span th:text="${person.gender.name}"></span></p>
+    </div>
+    <div th:if="${person == null}" class="mt-3">
+        <p>Person not found.</p>
+    </div>
+</body>
+</html>
