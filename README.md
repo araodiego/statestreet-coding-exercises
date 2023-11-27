@@ -6,11 +6,12 @@ This repository contains a series of coding exercises for State Street Bank, str
 ## Modules
 
 - **Exercise 1: Divisibility Checker (`divisibility-checker`)**: A Java application that prints numbers from 1 to 20, applying specific rules for numbers divisible by 3 and 5. It uses Java Streams for processing and JUnit 5 for unit testing.
-
+- **Exercise 2: Array Handler**: This module handles array operations. It takes a string input from the user, breaks it into an array of characters, sorts the array, and then combines the array back into a single sorted string.
+- **Exercise 3: Person Management Service**: Spring Boot Web Application used to Search, Create, Read, Update and Delete the entity Person. 
 
 ## Prerequisites
 
-- Java JDK 8 or later
+- Java JDK 17 or later
 - Maven 3.6.0 or later
 
 ## Building the Project
@@ -22,11 +23,24 @@ mvn clean install
 ```
 ## Running Individual Modules
 
-To execute a specific module, navigate to the module's directory and run the application using Maven. For example, to run the Divisibility Checker:
+Running the Divisibility Checker:
 
 ```bash
 cd divisibility-checker
-mvn exec:java -Dexec.mainClass="com.statestreet.exercises.DivisibilityChecker" 
+java -jar target/divisibility-checker-1.0-SNAPSHOT.jar
+```
+Running the Array Handler
+
+```bash
+cd array-handler
+java -jar target/array-handler-1.0-SNAPSHOT.jar
+```
+
+Running the Person Management Service
+
+```bash
+cd person-management-service
+java -jar target/person-management-service-1.0-SNAPSHOT.jar
 ```
 
 ## Unit Testing
