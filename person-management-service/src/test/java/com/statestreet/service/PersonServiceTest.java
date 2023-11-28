@@ -49,7 +49,7 @@ public class PersonServiceTest {
     public void testUpdatePerson() {
         Person person = new Person();
         person.setFullName("Alice Johnson");
-        person.setGender(female);
+        person.setGender(female);        
         
         Person savedPerson = personService.createPerson(person);
 

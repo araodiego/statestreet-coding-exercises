@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Not Found</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+	<div th:insert="menu :: navbar"></div>
+    <h1>Error Occurred</h1>
+    <div>
+        <p>An error has occurred in the application:</p>
+        <p th:text="${error}">Error details</p>
+    </div>    
+</body>
+</html>

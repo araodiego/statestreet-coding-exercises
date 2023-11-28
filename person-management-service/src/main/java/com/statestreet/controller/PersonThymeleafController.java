@@ -3,9 +3,12 @@ package com.statestreet.controller;
 import java.util.Collections;
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,8 @@ import com.statestreet.controller.exception.EntityNotFoundException;
 import com.statestreet.entity.Gender;
 import com.statestreet.entity.Person;
 import com.statestreet.service.PersonService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/persons")
@@ -44,7 +49,10 @@ public class PersonThymeleafController {
     }
 
     @PostMapping("/create")
-    public String createPersonSubmit(@ModelAttribute Person person) {
+    public String createPersonSubmit(@Valid @ModelAttribute("person") Person person, BindingResult bindingResult, Model model) {
+    	if (bindingResult.hasErrors()) {
+    		 return "create";
+    	}
         personService.createPerson(person);
         return "redirect:/persons";
     }
@@ -58,10 +66,13 @@ public class PersonThymeleafController {
     }
 
     @PostMapping("/{id}/edit")
-    public String editPersonSubmit(@PathVariable Long id, @ModelAttribute Person updatedPerson) {
-        Person existingPerson = personService.getPersonById(id)
-                                             .orElseThrow(() -> new EntityNotFoundException("Person not found with ID: " + id));
-        updatedPerson.setIdPerson(id);
+    public String editPersonSubmit(@PathVariable("id") Long id, @Valid @ModelAttribute("person") Person updatedPerson, BindingResult bindingResult, Model model) {
+    	updatedPerson.setIdPerson(id);
+    	 if (bindingResult.hasErrors()) {    		 
+			model.addAttribute("person", updatedPerson);
+			model.addAttribute("id", id);			
+			return "edit";
+    	 }        
         personService.updatePerson(updatedPerson);
         return "redirect:/persons";
     }

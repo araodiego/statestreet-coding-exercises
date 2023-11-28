@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.Date;
 
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -15,6 +16,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 @Data
@@ -32,9 +35,10 @@ public class Person {
     private Gender gender;
 
     @Column(name = "FULL_NAME")
+    @NotBlank(message = "Full Name cannot be empty")
     private String fullName;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")    
     @Column(name = "BIRTHDATE")
     private Date birthdate;
     
