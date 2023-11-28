@@ -42,6 +42,7 @@ Running the Person Management Service
 cd person-management-service
 java -jar target/person-management-service-1.0-SNAPSHOT.jar
 ```
+To Access the Person Management Service: http://localhost:8080/persons
 
 ## Unit Testing
 
